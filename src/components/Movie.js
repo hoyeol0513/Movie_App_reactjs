@@ -6,8 +6,12 @@ function Movie({id, coverImg,title, summary, genres }){
   <img src={coverImg} alt={title} />
   <h2>
     <Link to={`/movie/${id}`}>{title}</Link></h2>
-  {/* p = paragraph */}
-  <p>{summary}</p>
+  {/* 
+  p = paragraph 
+  summary가 길면 235 길이 전까지 자름.
+  => 그 뒤는 더보기 버튼을 넣어도 될듯 ? 
+  */}
+  <p>{summary.length > 235 ? `${summary.slice(0,235)}` : summary }</p>
   <ul>
     {genres.map((g)=>(
       <li key={g}>{g}</li>
